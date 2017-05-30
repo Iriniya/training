@@ -28,6 +28,18 @@
       <input id="1" class="cont_input" type="text" name="dish5" placeholder="Блюдо 5"><br>
     </div>
     <div class="cont_forma">
+      <label for="1" class="cont_label">Количество:</label><br>
+      <input id="1" class="cont_input" type="text" name="dish_count1" placeholder="введите количество"><br>
+      <label for="1" class="cont_label">Количество:</label><br>
+      <input id="1" class="cont_input" type="text" name="dish_count2" placeholder="введите количество"><br>
+      <label for="1" class="cont_label">Количество:</label><br>
+      <input id="1" class="cont_input" type="text" name="dish_count3" placeholder="введите количество"><br>
+      <label for="1" class="cont_label">Количество:</label><br>
+      <input id="1" class="cont_input" type="text" name="dish_count4" placeholder="введите количество"><br>
+      <label for="1" class="cont_label">Количество:</label><br>
+      <input id="1" class="cont_input" type="text" name="dish_count5" placeholder="введите количество"><br>
+    </div>
+    <div class="cont_forma">
       <label for="1" class="cont_label">Цена блюда 1:</label><br>
       <input id="1" class="cont_input" type="text" name="prise1" placeholder="Цена"><br>
       <label for="1" class="cont_label">Цена блюда 2:</label><br>

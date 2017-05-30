@@ -74,3 +74,8 @@ button.batton_green:active {
 	color: #dd6666;
 	text-transform:uppercase;
 }
+.total_prise {
+	font-family: arial, sans-serif;
+	font-size:20px;
+	color: #f00;
+}
