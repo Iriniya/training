@@ -15,42 +15,36 @@
       <option value="ужин">Ужин</option>
     </select></h1>
     <h2 class="menu"> меню </h2>
-    <div class="cont_forma">
-      <label for="1" class="cont_label">Блюдо 1:</label><br>
-      <input id="1" class="cont_input" type="text" name="dish1" placeholder="Блюдо 1"><br>
-      <label for="1" class="cont_label">Блюдо 2:</label><br>
-      <input id="1" class="cont_input" type="text" name="dish2" placeholder="Блюдо 2"><br>
-      <label for="1" class="cont_label">Блюдо 3:</label><br>
-      <input id="1" class="cont_input" type="text" name="dish3" placeholder="Блюдо 3"><br>
-      <label for="1" class="cont_label">Блюдо 4:</label><br>
-      <input id="1" class="cont_input" type="text" name="dish4" placeholder="Блюдо 4"><br>
-      <label for="1" class="cont_label">Блюдо 5:</label><br>
-      <input id="1" class="cont_input" type="text" name="dish5" placeholder="Блюдо 5"><br>
-    </div>
-    <div class="cont_forma">
-      <label for="1" class="cont_label">Количество:</label><br>
-      <input id="1" class="cont_input" type="text" name="dish_count1" placeholder="введите количество"><br>
-      <label for="1" class="cont_label">Количество:</label><br>
-      <input id="1" class="cont_input" type="text" name="dish_count2" placeholder="введите количество"><br>
-      <label for="1" class="cont_label">Количество:</label><br>
-      <input id="1" class="cont_input" type="text" name="dish_count3" placeholder="введите количество"><br>
-      <label for="1" class="cont_label">Количество:</label><br>
-      <input id="1" class="cont_input" type="text" name="dish_count4" placeholder="введите количество"><br>
-      <label for="1" class="cont_label">Количество:</label><br>
-      <input id="1" class="cont_input" type="text" name="dish_count5" placeholder="введите количество"><br>
-    </div>
-    <div class="cont_forma">
-      <label for="1" class="cont_label">Цена блюда 1:</label><br>
-      <input id="1" class="cont_input" type="text" name="prise1" placeholder="Цена"><br>
-      <label for="1" class="cont_label">Цена блюда 2:</label><br>
-      <input id="1" class="cont_input" type="text" name="prise2" placeholder="Цена"><br>
-      <label for="1" class="cont_label">Цена блюда 3:</label><br>
-      <input id="1" class="cont_input" type="text" name="prise3" placeholder="Цена"><br>
-      <label for="1" class="cont_label">Цена блюда 4:</label><br>
-      <input id="1" class="cont_input" type="text" name="prise4" placeholder="Цена"><br>
-      <label for="1" class="cont_label">Цена блюда 5:</label><br>
-      <input id="1" class="cont_input" type="text" name="prise5" placeholder="Цена"><br>
-    </div>
+    
+    <? 
+$i=1;
+do { echo '
+      <div class="col">
+      <div class="cont_forma">
+        <label for="',$i,'" class="cont_label">Блюдо ',$i,':</label><br>
+        <input id="',$i,'" class="cont_input" type="text" name="dish',$i,'" placeholder="Название"><br>
+      </div>
+      <div class="cont_forma">
+        <select class="col" size="4" name="dish_count',$i,'">
+          <option disabled>Выберите количество блюд</option>
+          <option selected value="0">0</option>
+          <option  value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select><br>
+      </div>
+      <div class="cont_forma">
+        <label for="',$i,'" class="cont_label">Цена блюда ',$i,':</label><br>
+      <input id="',$i,'" class="cont_input" type="text" name="prise',$i,'" placeholder="Цена"><br>
+      </div>
+      </div>';
+  $i++;
+  }
+while ($i<=5);
+?>
+   
     <input class="advantages_batton batton_green" type="submit" name="submit" value="Сделать заказ"></label>
   </form>
 </div>

@@ -21,54 +21,99 @@ if (isset($_POST['day']))  {$day=$_POST['day']; if ($day=='') {unset($day);} }?>
 <head>
   <meta charset="UTF-8" >
   <title>Группа 1</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<? $sum_prise=$prise1+$prise2+$prise3+$prise4+$prise5;
-$max_discount=0.1;
-$min_discount=0.05;
-$midi_discount=0.07;
+<? 
+$discount_position=0;
+$sum_prise=($prise1*$dish_count1)+($prise2*$dish_count2)+($prise3*$dish_count3)+($prise4*$dish_count4)+($prise5*$dish_count5);
+$max_discount=10/100;
+$min_discount=5/100;
+$midi_discount=7/100;
 $max_discount_prise=200;
 $min_discount_prise=100;
 $midi_discount_prise=150;
 $total_prise=$max_discount;
-if ($sum_prise>$max_discount_prise) {
-	$discount=$sum_prise*$max_discount; $total_prise=$sum_prise-$discount; $discount_position='10';  $discont_commite='';
-	if ($total_prise<=$max_discount_prise) {
-			$total_prise=$max_discount_prise; $discont_commite=' (цена со скидкой не может быть меньше минимально допустимой!)';
-} }
-elseif ($sum_prise>$midi_discount_prise) {
-	$discount=$sum_prise*$midi_discount; $total_prise=$sum_prise-$discount; $discount_position='7';  $discont_commite='';
-	if ($total_prise<=$midi_discount_prise) {
-			$total_prise=$midi_discount_prise; $discont_commite=' (цена со скидкой не может быть меньше минимально допустимой!)';
-}}
-elseif ($sum_prise>$min_discount_prise) {
-	$discount=$sum_prise*$min_discount; $total_prise=$sum_prise-$discount; $discount_position='5';  $discont_commite='';
-	if ($total_prise<=$min_discount_prise) {
-			$total_prise=$min_discount_prise; $discont_commite=' (цена со скидкой не может быть меньше минимально допустимой!)';
-}}
-else {
+if ($sum_prise>$max_discount_prise) 
+{
+	$discount=$sum_prise*$max_discount; 
+	$total_prise=$sum_prise-$discount; 
+	$discount_position='10';  
+	$discont_commite='';
+	if ($total_prise<=$max_discount_prise) 
+	{
+		$total_prise=$max_discount_prise; 
+		$discont_commite=' (цена со скидкой не может быть меньше минимально допустимой!)';
+	} 
+}
+elseif ($sum_prise>$midi_discount_prise) 
+{
+	$discount=$sum_prise*$midi_discount; 
+	$total_prise=$sum_prise-$discount; 
+	$discount_position='7';  
+	$discont_commite='';
+	if ($total_prise<=$midi_discount_prise) 
+	{
+		$total_prise=$midi_discount_prise; 
+		$discont_commite=' (цена со скидкой не может быть меньше минимально допустимой!)';
+	}
+}
+elseif ($sum_prise>$min_discount_prise) 
+{
+	$discount=$sum_prise*$min_discount; 
+	$total_prise=$sum_prise-$discount; 
+	$discount_position='5';  
+	$discont_commite='';
+	if ($total_prise<=$min_discount_prise) 
+	{
+		$total_prise=$min_discount_prise; 
+		$discont_commite=' (цена со скидкой не может быть меньше минимально допустимой!)';
+	}
+}
+else 
+{
 	$discount=0; $total_prise=$sum_prise;
 }
 
 	
 ?>
-<p>Время приема пищи: <?=$meal?></p>
-<div class="bill details"> 	
-		<p><?if ($dish1<>'') {echo 'Блюдо 1: ',$dish1,' количество ',$dish_count1,' цена ',$prise1,' руб.'; }  ?></p>
-		<p><?if ($dish2<>'') {echo 'Блюдо 2: ',$dish2,' количество ',$dish_count2,' цена ',$prise2,' руб.'; }  ?></p>
-		<p><?if ($dish3<>'') {echo 'Блюдо 3: ',$dish3,' количество ',$dish_count3,' цена ',$prise3,' руб.'; }  ?></p>
-		<p><?if ($dish4<>'') {echo 'Блюдо 4: ',$dish4,' количество ',$dish_count4,' цена ',$prise4,' руб.'; }  ?></p>
-		<p><?if ($dish5<>'') {echo 'Блюдо 5: ',$dish5,' количество ',$dish_count5,' цена ',$prise5,' руб.'; }  ?></p>
-		<p><?if ($sum_prise==0) {
-			echo 'Закакз не сделан';
-			} else { 
-				echo '<p> стоимость заказа: ' . $sum_prise.' руб.</p> '.
-					'<p> скидка ', $discount_position,' % составляет: '. $discount,' руб.'.$discont_commite,'</p>'.
-					'<p> ИТОГО: <span class="total_prise">' . $total_prise.'</span> руб.</p>';
-		} ?></p>
+<div class="check">
+<div class="cont_forma">
+<p>Вы заказали <span class="total_prise"><?=$meal?></span></p>
+	<p>	<?
+	if ($dish1<>'') 
+	{
+		echo 'Блюдо 1: ',$dish1,' количество ',$dish_count1,' цена ',$prise1,' руб.'; 
+	}  ?></p>
+	<p>	<?
+	if ($dish2<>'') 
+	{
+		echo 'Блюдо 2: ',$dish2,' количество ',$dish_count2,' цена ',$prise2,' руб.'; 
+	}  ?></p>
+	<p><?
+	if ($dish3<>'') 
+	{
+		echo 'Блюдо 3: ',$dish3,' количество ',$dish_count3,' цена ',$prise3,' руб.'; 
+	}  ?></p>
+	<p>	<?if ($dish4<>'') 
+	{
+		echo 'Блюдо 4: ',$dish4,' количество ',$dish_count4,' цена ',$prise4,' руб.'; 
+	}  ?></p>
+	<p><?
+	if ($dish5<>'') {echo 'Блюдо 5: ',$dish5,' количество ',$dish_count5,' цена ',$prise5,' руб.'; 
+	}  ?></p>
 </div>
-
-
-	
+<div class="cont_forma">
+	<p><?
+	if ($sum_prise==0) 
+	{
+		echo 'Не выбрано ни одного блюда';
+	} else { 
+		echo '<p> стоимость заказа: ' ,$sum_prise,' руб.</p> ',
+			'<p> скидка ', $discount_position,' % составляет: ',$discount,' руб.',$discont_commite,'</p>',
+			'<p> ИТОГО: <span class="total_prise">' ,$total_prise,'</span> руб.</p>';
+	} ?></p>
+</div>
+</div>
 </body>
 </html>
