@@ -1,5 +1,9 @@
 <?include("../db.php");
 if (isset($_GET['id']));{$id=($_GET['id']);}
+if (isset($_POST['id']))  {$id=$_POST['id']; }
+if (isset($_POST['food']))  {$food=$_POST['food']; }
+if (isset($_POST['weight']))  {$weight=$_POST['weight']; }
+if (isset($_POST['price']))  {$price=$_POST['price'];  }
 ?>
 <!DOCTYPE html>
 <html>
@@ -8,8 +12,9 @@ if (isset($_GET['id']));{$id=($_GET['id']);}
 	<title>Меню</title>
 </head>
 <body>
+
 <? if (isset($id)):?><h1>
-<?="Внесите изменения";?></h1>
+<?="Внесите изменения в блюдо" ;?></h1>
 <? $myrow=mysqli_query($db, "SELECT * FROM meal WHERE id='$id'");
 $rezult=mysqli_fetch_array($myrow);
 $time_id=$rezult['time_id'];
@@ -21,7 +26,7 @@ $time_id=$rezult['time_id'];
 	<input id="weight" type="text" name="weight" value=<?=$rezult['weight']?>><br>
 	<label for="price"><p>Цена блюда:</p></label>
 	<input id="price" type="text" name="price"  value=<?=$rezult['price']?>><br>
-	<input id="id" tipe="hidden" name="id" value=<?=$id?>><br>
+	<input id="id" type="hidden" name="id" value=<?=$id?>><br>
 	<input type="submit" name="submit" value="Сохранить">
 </form>
 <?else:?>
@@ -34,6 +39,8 @@ $time_id=$rezult['time_id'];
 	while ($rezult_all_meal=mysqli_fetch_array($myrow_all_meal)) ;
 	?>
 	<?endif?>
+
+
 <h3> <a href="../index.php"> На главную</a></h3>
 </body>
 </html>
