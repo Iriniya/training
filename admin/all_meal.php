@@ -49,25 +49,33 @@
 	?>
 <?else:?>
 	<? 
-	$myrow_price_meal=mysqli_query($db,"SELECT price FROM meal");
-	$rezult_price_meal=mysqli_fetch_array($myrow_price_meal);
+	$myrow_all_meal=mysqli_query($db,"SELECT * FROM meal");
+	$rezult_all_meal=mysqli_fetch_array($myrow_all_meal);
 	?>
-	<h2>Общая стоимость блюд: 
+	<h3>Общая стоимость всех блюд по одной порции: 
 	<?
-//	$sum_price=0;
-//	$i=0;
-//		do {
-//			$sum_price=$sum_price+$rezult_price_meal[$i];
-//			$i++;
-//		}
-//	while ($i<=count($rezult_price_meal)) ;
-//	echo $sum_price;
-	echo array_sum($rezult_price_meal),' </h2>';
+	$sum_price=0;
+	do {
+		$sum_price=$sum_price+$rezult_all_meal['price'];		
+		}
+	while ($rezult_all_meal=mysqli_fetch_array($myrow_all_meal)) ;
+	echo $sum_price;
 	?>
-	<h2>Общее количество блюд: 
+	 p. </h3>
+	<? 
+	$myrow_all_meal=mysqli_query($db,"SELECT * FROM meal");
+	$rezult_all_meal=mysqli_fetch_array($myrow_all_meal);
+	?>
+	 <h3>Общая количество всех блюд: 
 	<?
-	echo count($rezult_price_meal),' </h2>';
+	$sum_food=0;
+	do {
+		$sum_food=$sum_food+1;		
+		}
+	while ($rezult_all_meal=mysqli_fetch_array($myrow_all_meal)) ;
+	echo $sum_food;
 	?>
+	 p. </h3>
 	<? 
 	$myrow_all_meal=mysqli_query($db,"SELECT * FROM meal");
 	$rezult_all_meal=mysqli_fetch_array($myrow_all_meal);
