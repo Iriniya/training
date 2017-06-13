@@ -11,7 +11,7 @@
 <h2><a href="../admin/add_meal.php">Занести блюдо в меню</a></h2>
 <h2><a href="../admin/all_meal.php">Меню</a></h2>
 <h2><a href="../admin/del_meal.php">Удаление</a></h2>
-<? $i=1;
+<? /*$i=1;
 $max_myrow=$myrow[1];
 do {
 	$myrow[$i]=random_int(1, 7);
@@ -22,7 +22,7 @@ do {
 	$i=$i+1;
 }
 while ($i<=10);
-echo "Количество элементов: ",count($myrow), '<br>максимум: ', $max_myrow;
+echo "Количество элементов: ",count($myrow), '<br>максимум: ', $max_myrow;*/
 ?>
 
 </div>

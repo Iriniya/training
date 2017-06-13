@@ -10,7 +10,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Меню</title>
-	<link rel="stylesheet" type="text/css" href="../	style.css">
+	<link rel="stylesheet" type="text/css" href="../style.css">
 </head>
 <body>
 	<? if ($_GET['id']):?>
@@ -48,7 +48,7 @@
 	}
 	?>
 <?else:?>
-	<? 
+	<? /*
 	$myrow_all_meal=mysqli_query($db,"SELECT * FROM meal");
 	$rezult_all_meal=mysqli_fetch_array($myrow_all_meal);
 	?>
@@ -75,46 +75,52 @@
 	while ($rezult_all_meal=mysqli_fetch_array($myrow_all_meal)) ;
 	echo $sum_food;
 	?>
-	 p. </h3>
-	<? 
-	$myrow_all_meal=mysqli_query($db,"SELECT * FROM meal");
-	$rezult_all_meal=mysqli_fetch_array($myrow_all_meal);
-	?>
-	<h1>Завтрак</h1>
+	 p. </h3>*/?>
 	<?
+	$i=1;
+	$myrow_sorter_meal=mysqli_query($db,"SELECT * FROM sorter_eat");
+	$rezult_sorter_meal=mysqli_fetch_array($myrow_sorter_meal);
 	do {
-		if ($rezult_all_meal['time_id']==1) {
-			printf ("<p> <a href='all_meal.php?id=%s'>%s %s %s %s </a></p>", $rezult_all_meal['id'], $rezult_all_meal['food'], $rezult_all_meal['weight'], $rezult_all_meal['price'], $rezult_all_meal['time_id'] );
-		}
-		}
-	while ($rezult_all_meal=mysqli_fetch_array($myrow_all_meal)) ;
+		$myrow_all_meal=mysqli_query($db,"SELECT * FROM meal WHERE sorter_id=$i");
+		$rezult_all_meal=mysqli_fetch_array($myrow_all_meal);
+		?>
+			<h1 class="menu"> <? echo $rezult_sorter_meal['title']?></h1>
+		<?
+		do {
+			printf ("<p> <a href='all_meal.php?id=%s'>%s %s %s </a></p>", $rezult_all_meal['id'], $rezult_all_meal['food'], $rezult_all_meal['weight'], $rezult_all_meal['price']);
+			}
+		while ($rezult_all_meal=mysqli_fetch_array($myrow_all_meal)) ;
+		$i++;
+	}
+	while ($rezult_sorter_meal=mysqli_fetch_array($myrow_sorter_meal));
 	?>
-	<? 
-	$myrow_all_meal=mysqli_query($db,"SELECT * FROM meal");
+
+
+	<? 	/*
+	$myrow_all_meal=mysqli_query($db,"SELECT * FROM meal WHERE time_id=2");
 	$rezult_all_meal=mysqli_fetch_array($myrow_all_meal);
 	?>
 	<h1>Обед</h1>
 	<?
 	do {
-		if ($rezult_all_meal['time_id']==2) {
 			printf ("<p> <a href='all_meal.php?id=%s'>%s %s %s %s </a></p>", $rezult_all_meal['id'], $rezult_all_meal['food'], $rezult_all_meal['weight'], $rezult_all_meal['price'], $rezult_all_meal['time_id'] );
-		}
+		
 		}
 	while ($rezult_all_meal=mysqli_fetch_array($myrow_all_meal)) ;
 	?>
 	<? 
-	$myrow_all_meal=mysqli_query($db,"SELECT * FROM meal");
+	$myrow_all_meal=mysqli_query($db,"SELECT * FROM meal WHERE time_id=3");
 	$rezult_all_meal=mysqli_fetch_array($myrow_all_meal);
 	?>
 	<h1>Ужин</h1>
 	<?
 	do {
-		if ($rezult_all_meal['time_id']==3) {
 			printf ("<p> <a href='all_meal.php?id=%s'>%s %s %s %s </a></p>", $rezult_all_meal['id'], $rezult_all_meal['food'], $rezult_all_meal['weight'], $rezult_all_meal['price'], $rezult_all_meal['time_id'] );
-		}
+		
 		}
 	while ($rezult_all_meal=mysqli_fetch_array($myrow_all_meal)) ;
-	?>
+	
+	*/?>
 <?endif?>
 
 <h3> <a href="../index.php"> На главную</a></h3>
