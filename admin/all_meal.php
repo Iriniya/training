@@ -4,6 +4,8 @@
 	if (isset($_POST['food']))  {$food=$_POST['food']; }
 	if (isset($_POST['weight']))  {$weight=$_POST['weight']; }
 	if (isset($_POST['price']))  {$price=$_POST['price'];  }
+	if (isset($_POST['count_foods[]']))  {$count_foods[]=$_POST['count_foods[]'];  }
+	if (isset($_POST['ordering[]']))  {$ordering[]=$_POST['ordering[]'];  }
 ?>
 <!DOCTYPE html>
 <html>
@@ -87,14 +89,21 @@
 			<h1 class="menu"> <? echo $rezult_sorter_meal['title']?></h1>
 		<?
 		do {
-			printf ("<p> <a href='all_meal.php?id=%s'>%s %s %s </a></p>", $rezult_all_meal['id'], $rezult_all_meal['food'], $rezult_all_meal['weight'], $rezult_all_meal['price']);
+			printf ("<p> <a href='all_meal.php?id=%s'>%s %s %s </a>", $rezult_all_meal['id'], $rezult_all_meal['food'], $rezult_all_meal['weight'], $rezult_all_meal['price']);
+			?>
+				<form name="ordering" method="post" action="order.php"> 
+					<input type="text" name="count_foods[]" placeholder="Количество блюд">
+					<label> Заказать блюдо 
+					<input type="checkbox" name="ordering[]" value="1"><label>
+			<?
 			}
 		while ($rezult_all_meal=mysqli_fetch_array($myrow_all_meal)) ;
 		$i++;
 	}
 	while ($rezult_sorter_meal=mysqli_fetch_array($myrow_sorter_meal));
 	?>
-
+	</p><input type="submit" name="submit" value="Оформить заказ"></label>
+				</form>
 
 	<? 	/*
 	$myrow_all_meal=mysqli_query($db,"SELECT * FROM meal WHERE time_id=2");
