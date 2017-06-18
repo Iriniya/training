@@ -78,8 +78,7 @@
 	echo $sum_food;
 	?>
 	</h3>
- <table><tr><td>
-	<?
+ 	<?
 	$i=1;
 	$myrow_sorter_meal=mysqli_query($db,"SELECT * FROM sorter_eat");
 	$rezult_sorter_meal=mysqli_fetch_array($myrow_sorter_meal);
@@ -102,13 +101,10 @@
 			}
 		while ($rezult_all_meal=mysqli_fetch_array($myrow_all_meal)) ;
 		$i++;
-	?>
-</td><td>
-	<?
 	}
 	while ($rezult_sorter_meal=mysqli_fetch_array($myrow_sorter_meal));
 	?>
-	</td></tr></table></p><input type="submit" name="submit" value="Оформить заказ"></label>
+	</p><input class="batton_green" type="submit" name="submit" value="Оформить заказ"></label>
 				</form>
 
 

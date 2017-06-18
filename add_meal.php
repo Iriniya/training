@@ -4,11 +4,6 @@ $db=mysqli_connect('localhost','root','','menu');
 	if (isset($_POST['weight']))  {$weight=$_POST['weight']; if ($weight=='') {unset($weight);} }
 	if (isset($_POST['price']))  {$price=$_POST['price']; if ($price=='') {unset($price);} }
 	if (isset($_POST['time_id']))  {$time_id=$_POST['time_id']; if ($time_id=='') {unset($time_id);} }
-		if (isset($_POST['yx1']))  {$yx1=$_POST['yx1']; if ($yx1=='') {unset($yx1);} }
-		if (isset($_POST['yx2']))  {$yx2=$_POST['yx2']; if ($yx2='') {unset($yx2);} }
-		if (isset($_POST['yx3']))  {$yx3=$_POST['yx3']; if ($yx3=='') {unset($yx3);} }
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,9 +12,6 @@ $db=mysqli_connect('localhost','root','','menu');
 	<title>Добавьте блюдо</title>
 </head>
 <body>
-<?php echo substr($yx1, 0,1)," "?>
-//<?php echo substr($yx2, 0,1)," "?>
-//<?php echo "$yx3"?>
 <div class="center">
 <h1> Новое блюдо</h1>
 <div class="cont">
@@ -56,8 +48,5 @@ $db=mysqli_connect('localhost','root','','menu');
 </form>
 <h3> <a href="../index.php"> На главную</a></h3>
 </div>
-
-
-
 </body>
 </html>

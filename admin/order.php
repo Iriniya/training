@@ -15,20 +15,65 @@
 	<link rel="stylesheet" type="text/css" href="../style.css">
 </head>
 <body>
+<h2> Заказ от 
+<?=date(d);
+$today=date(m);
+switch ($today)
+{
+	case '01':
+	echo ' января ';
+	break;
+	case '02':
+	echo ' февраля ';
+	break;
+	case '03':
+	echo ' марта ';
+	break;
+	case '04':
+	echo ' апреля ';
+	break;
+	case '05':
+	echo ' мая ';
+	break;
+	case '06':
+	echo ' июня ';
+	break;
+	case '07':
+	echo ' июля ';
+	break;
+	case '08':
+	echo ' августа ';
+	break;
+	case '09':
+	echo ' сентября ';
+	break;
+	case '10':
+	echo ' октября ';
+	break;
+	case '11':
+	echo ' ноября ';
+	break;
+	case '12':
+	echo ' декабря ';
+	break;
+	default:
+	echo 'Такой даты не существует'; 
+}
+echo date(Y), ' года'; ?>
+ </h2>
+ <p>_____________________________________</p>
 <? 
 $count_all_orders=count($order);
-//echo "проверка1: ",$count_foods[$j];
 	foreach ($order as $value) 
 	{
 		$sorter=mysqli_query($db,"SELECT * FROM meal WHERE id=$value");
 		$sorter_array=mysqli_fetch_array($sorter);
-		printf('<p>%s Цена: %s  </p>', $sorter_array['food'], $sorter_array['price']);
+		printf('<p><span class="title_form"> %s </span> цена: <span class="title_form">%s</span> руб. </p>', $sorter_array['food'], $sorter_array['price']);
 		$sum_price[]=$sorter_array['price'];
 	}
-
-
 ?>
-<p> Стоимость заказа: <? echo array_sum($sum_price)?></p>
+ <p>_____________________________________</p>
+<p> Стоимость заказа: <? echo '<span class="title_form">',array_sum($sum_price), '</span> руб.'?></p>
 <h3> <a href="../index.php"> На главную</a></h3>
 </body>
 </html>

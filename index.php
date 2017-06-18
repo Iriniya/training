@@ -1,3 +1,7 @@
+<?if (isset($_POST['yx1']))  {$yx1=$_POST['yx1']; if ($yx1=='') {unset($yx1);} }
+		if (isset($_POST['yx2']))  {$yx2=$_POST['yx2']; if ($yx2='') {unset($yx2);} }
+		if (isset($_POST['yx3']))  {$yx3=$_POST['yx3']; if ($yx3=='') {unset($yx3);} }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,6 +29,5 @@ while ($i<=10);
 echo "Количество элементов: ",count($myrow), '<br>максимум: ', $max_myrow;*/
 ?>
 
-</div>
 </body>
 </html>
